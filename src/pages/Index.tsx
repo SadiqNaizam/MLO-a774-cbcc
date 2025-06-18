@@ -1,14 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import PageHeader from '../components/Dashboard/PageHeader';
+import StatsCardGrid from '../components/Dashboard/StatsCardGrid';
+import LeadsTrackingChart from '../components/Dashboard/LeadsTrackingChart';
+import ReasonsLostGrid from '../components/Dashboard/ReasonsLostGrid';
 
-const Index = () => {
+/**
+ * DashboardPage component
+ * 
+ * This page serves as the main dashboard overview, composing various 
+ * dashboard-specific components within the MainAppLayout.
+ * It displays a page header, statistics cards, a leads tracking chart, 
+ * and a grid for reasons leads were lost.
+ */
+const DashboardPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <MainAppLayout headerTitle="Dashboard">
+      {/* Page specific header with tabs and filters */}
+      <PageHeader />
+
+      {/* Grid display for key statistics cards */}
+      <StatsCardGrid />
+
+      {/* Chart for visualizing leads tracking over time */}
+      <LeadsTrackingChart />
+
+      {/* Grid for displaying reasons for lost leads and other data */}
+      <ReasonsLostGrid />
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default DashboardPage;
